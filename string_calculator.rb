@@ -3,6 +3,9 @@ require 'minitest/autorun'
 class Calculator
   def initialize(digits_string)
   end
+
+  def sum
+  end
 end
 
 describe Calculator do 
