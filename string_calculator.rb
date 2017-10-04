@@ -1,7 +1,8 @@
 require 'minitest/autorun'
 
 class Calculator
-
+  def initialize(digits_string)
+  end
 end
 
 describe Calculator do 
