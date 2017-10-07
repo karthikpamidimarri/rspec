@@ -1,3 +1,4 @@
+require_relative '../lib/playground.rb'
 
 #Example group string as an argument 
 #Describe what we test
