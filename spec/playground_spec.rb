@@ -6,9 +6,9 @@ describe Playground do
      #Bundle example with common context
    context 'when there are no children' do
 
-      before do
-        playground = Playground.new(0)
-      end
+      let(:playground){
+        Playground.new(0)
+      }
 
 
       #To define examples themselves
