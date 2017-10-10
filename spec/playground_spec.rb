@@ -14,6 +14,9 @@ describe Playground do
          expect(mood).to eq('boring')
       end
 
-      it 'is empty'
+      it 'is empty' do
+        playground = Playground.new(0)
+        expect(playground).to be_empty
+      end
    end
 end
