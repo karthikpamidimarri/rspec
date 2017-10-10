@@ -4,4 +4,8 @@ class Playground
 
   end
 
+  def mood
+    'boring'
+  end
+
 end
