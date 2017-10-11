@@ -4,4 +4,7 @@ class BowlingGame
 
   end
 
+  def score
+
+  end
 end
