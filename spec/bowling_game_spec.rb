@@ -20,4 +20,9 @@ describe BowlingGame do
     game.pins([4,6,5] + [0] * 17)
     expect(game.score).to eq(20)
   end
+
+  it 'scores a game with strike' do
+    game.pins([10,3,5] + [0] *17)
+    expect(game.score).to eq(26)
+  end
 end
