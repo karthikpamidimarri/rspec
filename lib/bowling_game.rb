@@ -1,6 +1,6 @@
 class BowlingGame
 
-  def pins
+  def pins(rolls)
 
   end
 
