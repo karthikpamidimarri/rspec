@@ -1,5 +1,11 @@
 class BowlingGame
 
+  attr_reader :first_in_frame
+  
+  def initialize
+    @first_in_frame =0 #Index for frame
+  end
+
   def pins(rolls)
     @rolls = rolls
   end
@@ -7,10 +13,10 @@ class BowlingGame
   def score
     frame = 0 # current frame start with 0
     score = 0
-    first_in_frame =0 #Index for frame
+
 
     while frame < 10
-      if spare?(first_in_frame)
+      if spare?
         score += 10 + @rolls[first_in_frame + 2]
       else
         #Regular implementation
@@ -18,13 +24,13 @@ class BowlingGame
       end
 
       frame += 1
-      first_in_frame += 2
+      @first_in_frame += 2
     end
 
     score
   end
 
-  def spare?(first_in_frame)
+  def spare?
     @rolls[first_in_frame] + @rolls[first_in_frame + 1] == 10
   end
 end
