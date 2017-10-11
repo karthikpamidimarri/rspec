@@ -1,7 +1,7 @@
 class BowlingGame
 
   attr_reader :first_in_frame
-  
+
   def initialize
     @first_in_frame =0 #Index for frame
   end
@@ -17,10 +17,10 @@ class BowlingGame
 
     while frame < 10
       if spare?
-        score += 10 + @rolls[first_in_frame + 2]
+        score += 10 + bonous_for_spare
       else
         #Regular implementation
-        score += @rolls[first_in_frame] + @rolls[first_in_frame + 1]
+        score += standard_frame_score
       end
 
       frame += 1
@@ -30,7 +30,18 @@ class BowlingGame
     score
   end
 
+  private
+
   def spare?
     @rolls[first_in_frame] + @rolls[first_in_frame + 1] == 10
   end
+
+  def bonous_for_spare
+    @rolls[first_in_frame + 2]
+  end
+
+  def standard_frame_score
+    @rolls[first_in_frame] + @rolls[first_in_frame + 1]
+  end
+
 end
