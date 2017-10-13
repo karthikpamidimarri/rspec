@@ -1,4 +1,4 @@
-class AchievementController < ApplicationController
+class AchievementsController < ApplicationController
   def new
     @achievement = Achievement.new
   end
