@@ -9,7 +9,7 @@ feature 'achievement page' do
   end
 
   scenario 'rendere markdown description' do
-    achievement = Achievement.create(title: 'Just did it',description: 'That *was* hard')
+    achievement = Achievement.create!(description: 'That *was* hard')
     visit("/achievements/#{achievement.id}")
 
     expect(page).to have_content('<i>was</i>')
