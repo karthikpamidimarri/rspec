@@ -26,4 +26,10 @@ describe AchievementsController do
       expect(assigns(:achievement)).to eq(achievement)
     end
   end
+
+
+  describe "POST create" do
+    it "redirects to achievement#show"
+    it "creates new achievement in database"
+  end
 end
