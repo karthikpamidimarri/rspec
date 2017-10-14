@@ -6,6 +6,9 @@ feature 'achievement page' do
     visit("/achievements/#{achievement.id}")
 
     expect(page).to have_content('Just did it')
+
+    achievements = FactoryGirl.create_list(:achievement,6)
+    p achievements
   end
 
   scenario 'rendere markdown description' do
