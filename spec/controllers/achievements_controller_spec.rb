@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe AchievementsController, type: :controller do
+describe AchievementsController do
 
 end
