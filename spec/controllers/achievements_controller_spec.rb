@@ -34,6 +34,10 @@ describe AchievementsController do
       expect(response).to redirect_to(achievement_path(assigns[:achievement]))
     end
 
-    it "creates new achievement in database"
+    it "creates new achievement in database" do
+      expect {
+        post :create, params: {achievement: FactoryGirl.attributes_for(:public_achievement) }
+      }.to change(Achievement,:count).by(1)
+    end
   end
 end
