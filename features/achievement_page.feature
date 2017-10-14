@@ -9,4 +9,4 @@ Feature: Achievement Page
     Given I am a guest user
     And there is a public achievement
     When I go to the achievement's page
-    Then I must see achievemtnt's content
+    Then I must see achievement's content
