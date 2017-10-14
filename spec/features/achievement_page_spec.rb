@@ -11,8 +11,8 @@ feature 'achievement page' do
     p achievements
   end
 
-  scenario 'rendere markdown description' do
-    achievement = Achievement.create!(description: 'That *was* hard')
+  scenario 'render markdown description' do
+    achievement = FactoryGirl.create(:achievement,description: 'That *was* hard')
     visit("/achievements/#{achievement.id}")
 
     expect(page).to have_content('<i>was</i>')
