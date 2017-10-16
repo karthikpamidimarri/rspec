@@ -50,6 +50,15 @@ describe AchievementsController do
     end
 
     context "invalid data" do
+      let(:invalid_data) {FactoryGirl.attributes_for(:public_achievement,title:"", description:'new')}
+
+      it "renders :edit template" do
+        put :update, params: {id: achievement, achievement: invalid_data}
+        expect(response).to render_template(:edit)
+      end
+
+      it "doesn't update achievement in the database"
+
     end
   end
 
