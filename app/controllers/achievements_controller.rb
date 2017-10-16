@@ -34,6 +34,10 @@ class AchievementsController < ApplicationController
     @achievement = Achievement.find(params[:id])
   end
 
+  def destroy
+
+  end
+
   private
 
   def achievement_params
