@@ -17,6 +17,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'redcarpet'
 
+gem 'devise'
+
 group :development, :test do
   gem 'listen'
   gem 'byebug'
