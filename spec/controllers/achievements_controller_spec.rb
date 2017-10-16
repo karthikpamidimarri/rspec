@@ -16,6 +16,16 @@ describe AchievementsController do
     end
   end
 
+  describe "GET edit" do
+    let(:achievement) { FactoryGirl.create(:public_achievement)}
+    it "renders :edit template" do
+      get :edit, params: {id:achievement}
+      expect(response).to render_template(:edit)
+    end
+
+    it "assigns the requested achievement template"
+  end
+
   #GET request a verb and second word is the name of the action
   describe "GET new" do
     it "renders :new template" do
