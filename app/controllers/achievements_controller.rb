@@ -35,7 +35,7 @@ class AchievementsController < ApplicationController
   end
 
   def destroy
-
+    redirect_to achievements_path
   end
 
   private
