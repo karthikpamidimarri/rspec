@@ -42,7 +42,8 @@ describe AchievementsController do
       end
       it "updates achievement in the database" do
         put :update, params: {id:achievement, achievement: valid_data}
-        achievement.reload
+        #achievement update we need fetch using reload we can fetch the updated attributes
+        #achievement.reload
         expect(achievement.title).to eq("New Title")
       end
 
