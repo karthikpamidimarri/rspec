@@ -32,6 +32,7 @@ describe AchievementsController do
 
   describe "PUT update" do
     let(:achievement) {FactoryGirl.create(:public_achievement)}
+
     context "valid data" do
       let(:valid_data) {FactoryGirl.attributes_for(:public_achievement,title: "New Title")}
 
