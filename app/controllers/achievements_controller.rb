@@ -17,6 +17,9 @@ class AchievementsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def show
     @achievement = Achievement.find(params[:id])
   end
