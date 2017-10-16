@@ -123,4 +123,13 @@ describe AchievementsController do
       end
     end
   end
+
+
+  describe "DELETE destroy" do
+    let(:achievement){FactoryGirl.create(:public_achievement)}
+
+    it "redirects to achievement#index"
+
+    it "deletes achievement from database"
+  end
 end
