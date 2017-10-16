@@ -40,11 +40,15 @@ describe AchievementsController do
         put :update, params: {id:achievement, achievement: valid_data}
         expect(response).to redirect_to(achievement)
       end
-      it "updates achievement in the database"
+      it "updates achievement in the database" do
+        put :update, params: {id:achievement, achievement: valid_data}
+        achievement.reload
+        expect(achievement.title).to eq("New Title")
+      end
+
     end
 
     context "invalid data" do
-
     end
   end
 
