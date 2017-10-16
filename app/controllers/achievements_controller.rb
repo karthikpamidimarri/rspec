@@ -1,7 +1,7 @@
 class AchievementsController < ApplicationController
 
   def index
-    @achievements = Achievement.all
+    @achievements = Achievement.public_access
   end
 
   def new
