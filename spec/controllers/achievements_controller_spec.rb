@@ -128,7 +128,10 @@ describe AchievementsController do
   describe "DELETE destroy" do
     let(:achievement){FactoryGirl.create(:public_achievement)}
 
-    it "redirects to achievement#index"
+    it "redirects to achievement#index" do
+      delete :destroy, params: {id:achievement}
+      expect(response).to redirect_to(achievements_path)
+    end
 
     it "deletes achievement from database"
   end
