@@ -8,7 +8,12 @@ describe AchievementsController do
       expect(response).to render_template(:index)
     end
 
-    it "assigns only public achievements to template"
+    it "assigns only public achievements to template" do
+      public_achievement = FactoryGirl.create(:public_achievement)
+      private_achievement = FactoryGirl.create(:private_achievement)
+      get :index
+      expect(assigns(:achievements)).to match_array([public_achievement])
+    end
   end
 
   #GET request a verb and second word is the name of the action
