@@ -27,6 +27,8 @@ RSpec.describe Achievement, type: :model do
       expect(achievement.valid?).to be_falsy
     end
 
+    it {should validate_presence_of(:title)}
+
     it 'requires title to be unique for one user' do
       user = FactoryGirl.create(:user)
       first_achievement = FactoryGirl.create(:public_achievement, title: 'First Achievement', user: user)
@@ -45,10 +47,14 @@ RSpec.describe Achievement, type: :model do
       expect(new_achievement.valid?).to be_truthy
     end
 
+    it {should validate_uniqueness_of(:title).scoped_to(:user_id).with_message("you can't have two achievements with the same title")}
+
     it 'belong to user' do
       achievement = Achievement.new(title: 'Some title', user:nil)
       expect(achievement.valid?).to be_falsey
     end
+
+    it {should validate_presence_of(:user)}
 
     it { should belong_to(:user) }
   end
