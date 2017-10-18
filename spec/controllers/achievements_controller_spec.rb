@@ -147,7 +147,6 @@ describe AchievementsController do
       end
     end
 
-=begin
     context "is not the owner of the achievement" do
       describe "GET edit" do
         it "redirects to achievements page" do
@@ -170,7 +169,6 @@ describe AchievementsController do
         end
       end
     end
-=end
 
     context "is the owner of the achievement" do
 

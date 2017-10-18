@@ -49,7 +49,7 @@ class AchievementsController < ApplicationController
   def owners_only
     @achievement = Achievement.find(params[:id])
     if current_user != @achievement.user
-      redirect_to achievement_path
+      redirect_to achievements_path
     end
   end
 end
