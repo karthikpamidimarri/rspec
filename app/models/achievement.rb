@@ -4,6 +4,7 @@ class Achievement < ApplicationRecord
   validates :title, presence: true
   #validates :title, uniqueness: true
   validate :unique_title_for_one_user
+  validates :user, presence: true
 
   enum privacy: [ :public_access, :private_access, :friends_access ]
 
@@ -19,4 +20,6 @@ class Achievement < ApplicationRecord
       errors.add(:title, "you can't have two achievments with the same title")
     end
   end
+
+
 end

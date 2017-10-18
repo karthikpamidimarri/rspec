@@ -44,5 +44,11 @@ RSpec.describe Achievement, type: :model do
       new_achievement = Achievement.new(title: 'First Achievement', user: user2)
       expect(new_achievement.valid?).to be_truthy
     end
+
+    it 'belong to user' do
+      achievement = Achievement.new(title: 'Some title', user:nil)
+      expect(achievement.valid?).to be_falsey
+    end
+    
   end
 end
