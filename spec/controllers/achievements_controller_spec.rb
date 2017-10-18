@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe AchievementsController do
 
-  describe "guest user" do
+  shared_examples "public access to achievements" do
 
     describe "GET index" do
       it "renders :index template" do
@@ -30,6 +30,12 @@ describe AchievementsController do
         expect(assigns(:achievement)).to eq(achievement)
       end
     end
+
+  end
+
+  describe "guest user" do
+
+    it_behaves_like "public access to achievements"
 
     describe "GET new" do
       it "redirects to login page" do
@@ -76,6 +82,8 @@ describe AchievementsController do
       #devise helper sign_in method user sign_in
       sign_in(user)
     end
+
+    it_behaves_like "public access to achievements"
 
     describe "GET index" do
       it "renders :index template" do
