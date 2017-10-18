@@ -8,7 +8,7 @@ feature 'create new achievement' do
   let(:login_form) {LoginForm.new}
   let(:user) {FactoryGirl.create(:user)}
 
-  before{
+  background{
     login_form.visit_page.login_as(user)
   }
 
