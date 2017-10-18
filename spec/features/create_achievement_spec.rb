@@ -7,9 +7,14 @@ feature 'create new achievement' do
   let(:new_achievement_form){NewAchievementForm.new}
   let(:login_form) {LoginForm.new}
   let(:user) {FactoryGirl.create(:user)}
+
+  before{
+    login_form.visit_page.login_as(user)
+  }
+
+
   scenario 'create new achievement with valid data' do # we use scenario instead of 'it' to specify the example
     #This is the BDD of wording
-    login_form.visit_page.login_as(user)
     new_achievement_form.visit_page.fill_in_with(
         title: 'Read a book'
     ).submit
@@ -19,7 +24,6 @@ feature 'create new achievement' do
   end
 
   scenario 'cannot create achievement with invalid data' do
-    login_form.visit_page.login_as(user)
     new_achievement_form.visit_page.submit
     expect(page).to have_content("can't be blank")
   end
