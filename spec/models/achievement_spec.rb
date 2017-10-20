@@ -60,7 +60,7 @@ RSpec.describe Achievement, type: :model do
 
     it 'converts markdown to html' do
       achievement = Achievement.new(description: 'Awesome **thing** I *actually* did' )
-      p achievement.description_html
+      #p achievement.description_html
       expect(achievement.description_html).to include('<strong>thing</strong>')
       expect(achievement.description_html).to include('<em>actually</em>')
     end
@@ -75,6 +75,16 @@ RSpec.describe Achievement, type: :model do
       achievement1 = FactoryGirl.create(:public_achievement, title: 'Read a book', user: user)
       achievement2 = FactoryGirl.create(:public_achievement, title: 'Passed an exam', user: user)
       expect(Achievement.by_letter("R")).to eq([achievement1])
+    end
+
+    it 'sorts achievements by user emails' do
+      albert = FactoryGirl.create(:user, email: 'albert@email.com')
+      rob = FactoryGirl.create(:user, email: 'rob@email.com')
+
+      achievement1 = FactoryGirl.create(:public_achievement, title: 'Read a book', user: albert)
+      achievement2 = FactoryGirl.create(:public_achievement, title: 'Rocked it', user: rob)
+
+      expect(Achievement.by_letter("R")).to eq([achievement1,achievement2])
     end
   end
 end
