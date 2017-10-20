@@ -22,10 +22,12 @@ describe Character do
     let(:character) { Character.new(strength:5, die: die)}
 
     it 'climbs successfully when roll + strength is more than difficulty' do
+      allow(die).to receive(:roll) { 11 }
       expect(character.climb(difficulty: 15)).to be_truthy
     end
-    it 'fails climbing check when roll + strength is less than difficulty'
-
-
+    it 'fails climbing check when roll + strength is less than difficulty'do
+      allow(die).to receive(:roll) { 5 }
+      expect(character.climb(difficulty: 15)).to be_falsy
+    end
   end
 end
