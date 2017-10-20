@@ -1,5 +1,19 @@
 class Character
 
+
+  def initialize(strength: 1, die: Die.new)
+    @strength = strength
+    @die = die
+  end
+
+  def climb(difficulty: 10)
+    die.roll + strength >= difficulty
+  end
+
+  private
+
+  attr_reader :die, :strength
+
 end
 
 describe Character do
