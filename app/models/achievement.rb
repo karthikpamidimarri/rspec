@@ -19,6 +19,9 @@ class Achievement < ApplicationRecord
     "#{title} by #{user.email}"
   end
 
+  def self.by_letter(letter)
+    where("title LIKE ? ", "#{letter}%")
+  end
 
 
 end
